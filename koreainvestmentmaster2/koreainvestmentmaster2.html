@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30,000명 이상이 참여했습니다.</title>
+<style>
+    /* 基本的彈性佈局 */
+    .image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .image-container img, .image-container video {
+        max-width: 100%; /* 最大寬度為100% */
+        height: auto; /* 讓影片按比例縮放 */
+        margin: 10px; /* 添加一些間距 */
+    }
+
+    /* 媒體查詢：當螢幕寬度小於768px時應用以下CSS */
+    @media screen and (max-width: 768px) {
+        .image-container img, .image-container video {
+            width: 50%; /* 影片和圖片寬度為父元素的一半 */
+        }
+    }
+</style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="images/韓國投資1-03.png" >
+        <a href="http://qr.kakao.com/talk/YfsITW7V4942ckDEO8Pcwgnhx0Q-">
+            <img src="images/韓國投資1-04.png" >
+        </a>
+        <img src="images/韓國投資1-05.png" >
+        <img src="images/韓國投資1-06.png" >
+        <img src="images/韓國投資1-07-1.png" >
+    </div>
+    <div class="image-container">
+        <video controls>
+            <source src="videos/嵌入影片.MOV" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="image-container">
+        <img src="images/韓國投資1-08.png" >
+        <img src="images/韓國投資1-09-1.png" >
+        <a href="http://qr.kakao.com/talk/pZvF0_4j6VLlrJ89KR6qMUG5h08-">
+            <img src="images/韓國投資1-02.png" >
+        </a>
+        <img src="images/韓國投資1-09-2.png" >
+        <img src="images/韓國投資1-10.png" >
+        <img src="images/韓國投資1-11.png" >
+        <img src="images/韓國投資1-12.png" >
+        <img src="images/韓國投資1-13.png" >
+        <img src="images/韓國投資1-14-1.png" >
+        <a href="http://qr.kakao.com/talk/AL6hICfL3II.sIkt9rDBeYu.80o-">
+            <img src="images/韓國投資1-02.png" >
+        </a>
+    </div>
+</body>
+</html>
