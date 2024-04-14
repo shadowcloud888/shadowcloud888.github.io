@@ -3,12 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
     <script src="vue.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
-    <title>Document</title>
+    <title>30,000명 이상이 참여했습니다.</title>
+    <style>
+        /* 基本的彈性佈局 */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .image-container img, .image-container video {
+            max-width: 100%; /* 最大寬度為100% */
+            height: auto; /* 讓影片按比例縮放 */
+        }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -20,6 +32,55 @@
                 <a href="http://qr.kakao.com/talk/YfsITW7V4942ckDEO8Pcwgnhx0Q-">
                     <v-img
                         src="images/韓國投資1-04.png"
+                    ></v-img>
+                </a>
+                <v-img
+                    src="images/韓國投資1-05.png"
+                ></v-img>
+                <v-img
+                    src="images/韓國投資1-06.png"
+                ></v-img>
+                <v-img
+                    src="images/韓國投資1-07-1.png"
+                ></v-img>
+                <div class="image-container">
+                    <video controls>
+                        <source src="videos/嵌入影片.MOV" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <v-img
+                    src="images/韓國投資1-08.png"
+                ></v-img>
+                <v-img
+                    src="images/韓國投資1-09-1.png"
+                ></v-img>
+                <a href="http://qr.kakao.com/talk/pZvF0_4j6VLlrJ89KR6qMUG5h08-">
+                    <v-img
+                        src="images/韓國投資1-02.png"
+                    ></v-img>
+                </a>
+                <v-img
+                    src="images/韓國投資1-09-2.png"
+                ></v-img>
+                <v-img
+                    src="images/韓國投資1-10.png"
+                ></v-img>
+                <v-img
+                    src="images/韓國投資1-11.png"
+                ></v-img>
+                <v-img
+                    src="images/韓國投資1-12.png"
+                ></v-img>
+                <v-img
+                    src="images/韓國投資1-13.png"
+                ></v-img>
+                <v-img
+                    src="images/韓國投資1-14-1.png"
+                ></v-img>
+                <a href="http://qr.kakao.com/talk/AL6hICfL3II.sIkt9rDBeYu.80o-">
+                    <v-img
+                        src="images/韓國投資1-02.png"
                     ></v-img>
                 </a>
             </v-container>
