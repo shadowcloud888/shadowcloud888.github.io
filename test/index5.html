@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+    <script src="vue.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <v-app>
+            <v-container>
+
+                <v-form ref="myForm" @submit.prevent="submitForm">
+                    <v-row>
+                        <v-col>
+                            <v-text-field v-model="newItem.name" label="名稱" :rules="nameRules" required></v-text-field>
+                        </v-col>
+                        <v-col>
+                            <v-text-field v-model="newItem.email" label="信箱" type="email" :rules="emailRules" required></v-text-field>
+                        </v-col>
+                        <v-col>
+                            <v-select
+                                v-model="newItem.gender"
+                                :items="genderOptions"
+                                label="性別"
+                                :rules="genderRules"
+                                required
+                            ></v-select>
+                        </v-col>
+                        <v-col>
+                            <v-btn v-on:click="submitForm" color="primary">新增會員</v-btn>
+                        </v-col>
+                    </v-row>
+                </v-form>
+
+                <v-data-table v-if="data.length > 0" :headers="headers" :items="data" class="elevation-1" :options="{ itemsPerPage: 5 }">
+                    <template v-slot:item.action="{ item }">
+                        <v-icon @click="editItem(item)">mdi-pencil</v-icon>
+                        <v-icon @click="deleteItem(item)">mdi-delete</v-icon>
+                    </template>
+                </v-data-table>
+
+                <v-dialog v-model="dialog" max-width="600px">
+                    <v-card>
+                        <v-card-title>編輯會員
+                            <v-spacer></v-spacer>
+                            <v-card-actions>
+                                <v-btn icon @click="dialog = false">
+                                    <v-icon>mdi-close</v-icon>
+                                </v-btn>
+                            </v-card-actions>
+                        </v-card-title>
+
+                        <v-card-text>
+                            <v-form  @submit.prevent="saveEdit">
+                                <v-row>
+                                    <v-col>
+                                        <v-text-field v-model="editedItem.name" label="名稱" :rules="nameRules" required></v-text-field>
+                                    </v-col>
+                                    <v-col>
+                                        <v-text-field v-model="editedItem.email" label="信箱" type="email" :rules="emailRules" required></v-text-field>
+                                    </v-col>
+                                    <v-col>
+                                        <v-select
+                                            v-model="editedItem.gender"
+                                            :items="genderOptions"
+                                            label="性別"
+                                            :rules="genderRules"
+                                            required
+                                        ></v-select>
+                                    </v-col>
+                                    
+                                </v-row>
+                                <v-row>
+                                    <v-col md="4">
+                                        <v-card outlined tile>
+                                        .col-md-4
+                                        </v-card>
+                                    </v-col>
+                                    <v-col md="4" offset-md="4">
+                                        <div style="width: 100%;display: flex;">
+                                            <v-btn v-on:click="saveEdit" color="primary">OK</v-btn>
+                                        </div>                                        
+                                    </v-col>
+                                </v-row>
+                            </v-form>
+                        </v-card-text>
+                    </v-card>
+                    
+                </v-dialog>
+            </v-container>
+        </v-app>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            vuetify: new Vuetify(), 
+            data() {
+                return {
+                    newItem: { name: '', email: '', gender: '' }, 
+                    data: [ { id: 1, name: 'John', email: 'john.doe@example.com', gender: '男' }], 
+                    headers: [
+                        { text: '名稱', value: 'name' },
+                        { text: '郵箱', value: 'email' },
+                        { text: '性別', value: 'gender' },
+                        { text: '操作', value: 'action', sortable: false },
+                    ],
+                    genderOptions: ['男', '女'],
+                    dialog: false, 
+                    editedItem: { id: 0, name: '', email: '', gender: '' },
+                    nameRules: [
+                        v => !!v || '名稱是必填項',
+                        v => this.isNameUnique(v) || '名稱已存在',
+                    ],
+                    emailRules: [
+                        v => !!v || '信箱是必填項',
+                        v => /.+@.+\..+/.test(v) || '信箱格式不正確',
+                    ],
+                    genderRules: [v => !!v || '性別是必填項'],
+                };
+            },
+            
+            methods: {
+                submitForm() {
+                    if (this.$refs.myForm.validate()) {
+                        this.data.push({
+                            id: this.data.length + 1,
+                            name: this.newItem.name,
+                            email: this.newItem.email,
+                            gender: this.newItem.gender
+                        });
+                        this.newItem.name = '';
+                        this.newItem.email = '';
+                        this.newItem.gender = '';
+                        this.$refs.myForm.resetValidation()
+                    } else {
+                        alert('請輸入所有欄位');
+                    }
+                },
+                editItem(item) {
+                    this.editedItem = Object.assign({}, item);
+                    this.dialog = true;
+                },
+                saveEdit() {
+                    if (!this.editedItem.name.trim()) {
+                        alert('姓名不能為空');
+                        return; 
+                    }
+                    if (!/.+@.+\..+/.test(this.editedItem.email)) {
+                        alert('信箱格式不正確');
+                        return; 
+                    }
+                    if (this.isNameUnique(this.editedItem.name)) {
+                        const index = this.data.findIndex(item => item.id === this.editedItem.id);
+                        if (index !== -1) {
+                            this.$set(this.data, index, Object.assign({}, this.editedItem));
+                        }
+                        this.dialog = false; 
+                    } else {
+                        alert('姓名重複，請使用不同的姓名');
+                    }
+                },
+                deleteItem(item) {
+                    const index = this.data.indexOf(item);
+                    if (index !== -1) {
+                        this.data.splice(index, 1);
+                    }
+                },
+                isNameUnique(name) {
+                    return !this.data.some(item => item.name === name && item.id !== this.editedItem.id);
+                },
+                emailRules(value){
+                    if(value == undefined || value == ''){
+                        return '請輸入信箱'
+                    }
+                    if(!/.+@.+\..+/.test(value)){
+                        return '信箱格式不正確'
+                    }
+                    return true;
+                }
+            },
+        });
+    </script>
+</body>
+</html>
