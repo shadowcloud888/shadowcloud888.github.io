@@ -1,7 +1,7 @@
 <?php
 mb_internal_encoding("UTF-8");
 
-$to = 'hello@example.com';
+$to = 'legofun30116@gmail.com';
 $subject = 'Message from Cryptex';
 
 $name = "";
