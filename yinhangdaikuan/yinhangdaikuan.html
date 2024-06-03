@@ -20,6 +20,16 @@
             max-width: 100%; /* 最大寬度為100% */
             height: auto; /* 讓影片按比例縮放 */
         }
+        .iframe-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin: 20px 0; /* 設置上下面距 */
+        }
+        #app {
+            background-color: rgb(200, 200, 203); /* 應用整體背景顏色 */
+        }
     </style>
 </head>
 <body>
@@ -31,7 +41,10 @@
                     src="images/04.jpg"
                     ></v-img>
                 </a>
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSflrMk4ZfnvLUJG2rM47raFrg1-wegFQGW2GkxUDuYr3QMReQ/viewform?embedded=true" width="640" height="1150" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
+                <div class="iframe-container">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSflrMk4ZfnvLUJG2rM47raFrg1-wegFQGW2GkxUDuYr3QMReQ/viewform?embedded=true" width="640" height="1150" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
+                </div>
+                
                 <a href="https://line.me/ti/p/MIZ3vNWeHB">
                     <v-img
                     src="images/02.jpg"
@@ -39,10 +52,17 @@
                 </a>
                 <a href="https://line.me/ti/p/MIZ3vNWeHB">
                     <v-img
-                    src="images/03.jpg"
+                    src="images/08.png"
                     ></v-img>
                 </a>
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSflrMk4ZfnvLUJG2rM47raFrg1-wegFQGW2GkxUDuYr3QMReQ/viewform?embedded=true" width="640" height="1150" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
+                <div class="iframe-container">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSflrMk4ZfnvLUJG2rM47raFrg1-wegFQGW2GkxUDuYr3QMReQ/viewform?embedded=true" width="640" height="1150" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
+                </div>
+                <a href="https://line.me/ti/p/MIZ3vNWeHB">
+                    <v-img
+                    src="images/07.png"
+                    ></v-img>
+                </a>
             </v-container>
         </v-app>
     </div>
