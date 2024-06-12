@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="vue.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <title></title>
+    <style>
+        /* 基本的彈性佈局 */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .iframe-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin: 0; /* 設置上下面距 */
+            background-image: url('images/1200x2-08.png'); /* 設置背景圖片 */
+            background-size: cover; /* 背景圖片覆蓋容器 */
+            background-position: center; /* 背景圖片居中 */
+            background-repeat: no-repeat; /* 背景圖片不重複 */
+        }
+        #app {
+            background-color: rgb(200, 200, 203); /* 應用整體背景顏色 */
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <v-app>
+            <v-container>
+                <a href="https://line.me/ti/p/MIZ3vNWeHB">
+                    <v-img
+                    src="images/04.jpg"
+                    ></v-img>
+                </a>
+                <div class="iframe-container">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSflrMk4ZfnvLUJG2rM47raFrg1-wegFQGW2GkxUDuYr3QMReQ/viewform?embedded=true" width="2000" height="1150" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
+                </div>
+                
+                <a href="https://line.me/ti/p/MIZ3vNWeHB">
+                    <v-img
+                    src="images/02.jpg"
+                    ></v-img>
+                </a>
+                <a href="https://line.me/ti/p/MIZ3vNWeHB">
+                    <v-img
+                    src="images/08.png"
+                    ></v-img>
+                </a>
+                <div class="iframe-container">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSflrMk4ZfnvLUJG2rM47raFrg1-wegFQGW2GkxUDuYr3QMReQ/viewform?embedded=true" width="640" height="1150" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
+                </div>
+                <a href="https://line.me/ti/p/MIZ3vNWeHB">
+                    <v-img
+                    src="images/07.png"
+                    ></v-img>
+                </a>
+            </v-container>
+        </v-app>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            vuetify: new Vuetify(), 
+            data() {
+                return {
+                    
+                };
+            },
+            
+            methods: {
+                
+            },
+        });
+    </script>
+</body>
+</html>
