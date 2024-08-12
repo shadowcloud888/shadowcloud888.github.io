@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="vue.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <title></title>
+    <style>
+        /* 基本的彈性佈局 */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .image-container img, .image-container video {
+            max-width: 100%; /* 最大寬度為100% */
+            height: auto; /* 讓影片按比例縮放 */
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <v-app>
+            <v-container>
+                <a href="">
+                    <v-img
+                    src="images/01.png"
+                    ></v-img>
+                </a>
+                <a href="">
+                    <v-img
+                    src="images/00.png"
+                    ></v-img>
+                </a>
+                <a href="">
+                    <v-img
+                    src="images/02.png"
+                    ></v-img>
+                </a>
+                <a href="">
+                    <v-img
+                    src="images/03.png"
+                    ></v-img>
+                </a>
+                <a href="">
+                    <v-img
+                    src="images/04.png"
+                    ></v-img>
+                </a>
+                <a href="">
+                    <v-img
+                    src="images/00.png"
+                    ></v-img>
+                </a>
+                <a href="">
+                    <v-img
+                    src="images/05.png"
+                    ></v-img>
+                </a>
+                <a href="">
+                    <v-img
+                    src="images/06.png"
+                    ></v-img>
+                </a>
+                <a href="">
+                    <v-img
+                    src="images/07.png"
+                    ></v-img>
+                </a>
+                <a href="">
+                    <v-img
+                    src="images/00.png"
+                    ></v-img>
+                </a>
+            </v-container>
+        </v-app>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            vuetify: new Vuetify(), 
+            data() {
+                return {
+                    
+                };
+            },
+            
+            methods: {
+                
+            },
+        });
+    </script>
+</body>
+</html>
